@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>재고 현황</h2>
+<a href="{{ url_for('inventory.move') }}" class="btn btn-primary mb-3">재고 이동</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>SKU</th>
+            <th>로케이션</th>
+            <th>수량</th>
+            <th>존 타입</th>
+            <th>관리</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for inventory in inventories %}
+        <tr>
+            <td>{{ inventory.product.sku }}</td>
+            <td>{{ inventory.location.location_code }}</td>
+            <td>{{ inventory.quantity }}</td>
+            <td>{{ inventory.location.zone_type }}</td>
+            <td>
+                <a href="{{ url_for('inventory.detail', id=inventory.id) }}" 
+                   class="btn btn-sm btn-info">상세</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %} 

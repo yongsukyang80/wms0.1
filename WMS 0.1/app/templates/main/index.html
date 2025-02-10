@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>WMS 시스템</h1>
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">상품 관리</h5>
+                <p class="card-text">상품 등록 및 관리</p>
+                <a href="{{ url_for('product.index') }}" class="btn btn-primary">바로가기</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">재고 관리</h5>
+                <p class="card-text">재고 현황 및 이동</p>
+                <a href="{{ url_for('inventory.index') }}" class="btn btn-primary">바로가기</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
